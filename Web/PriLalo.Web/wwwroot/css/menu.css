@@ -1,0 +1,110 @@
+﻿
+body {
+    max-width: 1980px;
+}
+
+.base{
+    position: relative;
+    margin: 1%;
+}
+
+.base-list {
+    position: fixed;
+    list-style-type: none;
+    width: 12%;
+    left: 84%;
+    top: 13%;
+}
+
+.nav-link-menu {
+    font-weight: 700;
+    color: black !important;
+    border-radius: 100px 10px / 120px;
+    border-color: red !important;
+}
+
+.nav-link-menu:hover {
+    color: white !important;
+    background-color: red;
+    border-radius: 100px 10px / 120px;
+}
+
+.nav-link-menu-blue {
+    font-weight: 700;
+    color: black !important;
+    border-radius: 100px 10px / 120px;
+    border-color: dodgerblue !important;
+}
+
+.nav-link-menu-blue:hover {
+    color: white !important;
+    background-color: dodgerblue;
+    border-radius: 100px 10px / 120px;
+}
+
+.item {
+    margin-top: 2rem;
+    font-size: 1vw;
+    /*box-shadow: 10px 5px 5px grey;*/
+}
+
+.text-header {
+    font-size: 10vw;
+}
+
+.menu-title {
+    font-family: Pattaya, sans-serif;
+}
+
+
+
+.menu-text {
+
+    font-family: 'IBM Plex Sans', sans-serif;
+}
+
+.body {
+    /*border: 1px solid grey;
+    border-radius: 5px;*/
+    min-width: 250px;
+}
+
+.meal {
+    /*border: 1px solid grey;
+    border-radius: 5px;*/
+    align-items: center
+}
+
+.image {
+    /*border: 1px solid grey;
+    border-radius: 5px;*/
+    min-width: 200px;
+    max-width: 300px;
+}
+
+#topMeals {
+    /*border: 1px solid grey;
+    border-radius: 5px;*/
+    max-width: 17.4rem;
+    max-height: 12rem;
+}
+
+.topMeal-button{
+    position: absolute;
+    left: 55%;
+    top: 80%;
+}
+
+.topMeal-name {
+    position: absolute;
+    border-radius: 10%;
+    background-color: darkorange;
+    color: white;
+    font-weight: bold;
+    left: 5%;
+    top: 5%;
+}
+
+.filter{
+    margin-left: 2.5%;
+}

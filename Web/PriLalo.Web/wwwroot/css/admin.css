@@ -1,0 +1,76 @@
+﻿
+.adminItem {
+
+    width: 12rem;
+    height: 10rem;
+    margin-left: 1rem;
+}
+
+.adminButton3 {
+    margin-left: 1rem;
+    max-width: 10rem;
+    font-size: 1.3rem;
+    border: 3px solid;
+    background-color: limegreen;
+    color: white !important;
+    border-radius: 100px 10px / 120px;
+}
+
+    .adminButton3:hover {
+        color: limegreen !important;
+        background-color: white;
+        border: 3px solid limegreen;
+    }
+
+.adminButton2 {
+    margin-left: 1rem;
+    max-width: 12rem;
+    font-size: 1.3rem;
+    border: 3px solid dodgerblue;
+    background-color: dodgerblue;
+    color: white !important;
+    border-radius: 100px 10px / 120px;
+}
+
+    .adminButton2:hover {
+        color: dodgerblue !important;
+        background-color: white;
+        border: 3px solid dodgerblue;
+    }
+
+.adminButton {
+    margin-left: 1rem;
+    max-width: 10rem;
+    font-size: 1.3rem;
+    border: 3px solid red;
+    background-color: red;
+    color: white !important;
+    border-radius: 100px 10px / 120px;
+}
+
+    .adminButton:hover {
+        color: red !important;
+        background-color: white;
+        border: 3px solid red;
+    }
+
+.adminRow{
+    max-height: 8.5rem;
+}
+
+.text {
+    color: red;
+    font-style: italic;
+    font-family: 'AmstelvarAlpha';
+    font-size: 1.8rem;
+}
+
+.textTiile {
+    margin-left: 3rem;
+    margin-top: 0rem;
+    margin-bottom: 0rem;
+    color: red;
+    font-style: italic;
+    font-family: 'AmstelvarAlpha';
+    font-size: 2rem;
+}

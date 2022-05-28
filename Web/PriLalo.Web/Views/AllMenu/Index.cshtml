@@ -1,0 +1,79 @@
+﻿@model PriLalo.Web.ViewModels.Meals.MealListViewModel
+@using PriLalo.Common
+@{
+    this.ViewData["Title"] = "All Menu";
+}
+
+<head>
+    <link rel="stylesheet" href="~/css/allmenu.css" asp-append-version="true" />
+    <link href="https://fonts.googleapis.com/css2?family=Pattaya&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<div id="AllMenu">
+
+    <img class="img-fluid justify-content-center" src="~/images/backgrounds/WhiteBackground.png"
+         style="width: 1920px; height: auto; z-index: 100;" />
+
+
+    @*Меню Паста*@
+    <a id="tag-1" class="text-dark" asp-controller="Meal" asp-action="Index" asp-route-typeName="meal">Паста</a>
+    <a class="text-dark" asp-controller="Meal" asp-action="Index" asp-route-typeName="meal">
+        <div id="anchor-1">
+            <img class="img-fluid justify-content-center" src="~/images/buttons/Паста-11.png" alt="Alternate Text" />
+        </div>
+    </a>
+    <div id="logo-1">Направено с Любов за Вас</div>
+
+
+    @*Меню Напитки*@
+    <a id="tag-2" class="text-dark" asp-controller="Meal" asp-action="Index" asp-route-typeName="drink">Напитки</a>
+    <a class="text-dark" asp-controller="Meal" asp-action="Index" asp-route-typeName="drink">
+        <div id="anchor-2">
+            <img class="img-fluid justify-content-center" src="~/images/buttons/Напитки-11.png" alt="Alternate Text" />
+        </div>
+    </a>
+    <div id="logo-2">За по пълноценно </div>
+
+
+    @*Меню Десерти*@
+    <a id="tag-3" class="text-dark" asp-controller="Meal" asp-action="Index" asp-route-typeName="dessert">Десерти</a>
+    <a class="text-dark" asp-controller="Meal" asp-action="Index" asp-route-typeName="dessert">
+        <div id="anchor-3">
+            <img class="img-fluid justify-content-center" src="~/images/buttons/Десерт-11.png" alt="Alternate Text" />
+        </div>
+    </a>
+    <div id="logo-3">Наслада за завършек</div>
+
+
+    @*Детско Меню*@
+    <a id="tag-4" class="text-dark" asp-controller="Menu" asp-action="Index" asp-route-typeName="kids">Детско меню</a>
+    <a class="text-dark" asp-controller="Meal" asp-action="Index" asp-route-typeName="kids">
+        <div id="anchor-4">
+            <img class="img-fluid justify-content-center" src="~/images/buttons/Детско-11.jpg" alt="Alternate Text" />
+        </div>
+    </a>
+    <div id="logo-4">За най-маките с любов</div>
+
+
+    @*Лого*@
+    @*<a id="tag-5" class="text-dark" asp-controller="Menu" asp-action="Index" asp-route-typeName="kids"></a>*@
+    <div class="proposalOfTheWeek">
+
+        <div id="anchor-5">
+            <img class="img-fluid justify-content-center" src="~/images/other/LaloLogo.png" alt="Alternate Text" />
+        </div>
+
+    </div>
+
+
+    @*Реклама*@
+    <div class="comercial">
+
+        <div id="anchor-6">
+            <p>Храната приготвена с любов и с отлично качество на съставките не е просто храна а колинарно изжевяване за ценители с високи изисквания</p>
+        </div>
+
+    </div>
+
+</div>

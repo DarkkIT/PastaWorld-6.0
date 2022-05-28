@@ -1,0 +1,69 @@
+﻿.badge {
+    padding-left: 9px;
+    padding-right: 9px;
+    -webkit-border-radius: 9px;
+    -moz-border-radius: 9px;
+    border-radius: 9px;
+}
+
+.label-warning[href],
+.badge-warning[href] {
+    background-color: #c67605;
+}
+
+#lblCartCount {
+    font-size: 12px;
+    background: #007bff;
+    color: #fff;
+    padding: 0 5px;
+    vertical-align: top;
+    margin-left: -10px;
+}
+
+.cart{
+    display:flex;
+    align-items:center;
+}
+
+.arrow-up, .arrow-down{
+    width:1rem;
+}
+
+.arrow-down{
+    color:red;
+}
+.arrow-up{
+    color:green;
+}
+.arrow-down:hover{
+    font-size:larger
+}
+.arrow-up:hover {
+    font-size: larger
+}
+
+.arrow-container:hover {
+    text-decoration: none;
+}
+
+.button-tracker-list {
+    border: 4px solid red;
+    border-radius: 2%;
+    border-radius: 100px 10px / 120px;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 7px;
+    background-color: red;
+    color: white !important;
+    font-size: 1.2vw;
+    max-width: 7rem;
+}
+
+    .button-tracker-list:hover {
+        background-color: white;
+        color: red !important;
+    }
+
+.text {
+    font-family: 'Pattaya', sans-serif;
+}

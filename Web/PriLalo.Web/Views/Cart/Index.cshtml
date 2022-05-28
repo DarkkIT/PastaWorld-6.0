@@ -1,0 +1,74 @@
+﻿@using PriLalo.Web.ViewModels.Cart
+@model IEnumerable<CartItemViewModel>
+
+@{
+    var deliveryPrice = 5.50m;
+}
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="~/css/cart.css" asp-append-version="true" />
+</head>
+
+<div class="container text">
+
+    <div>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col" class="font-italic"></th>
+                    <th scope="col" class="font-italic">Артикул</th>
+                    <th scope="col" class="font-italic">Количество</th>
+                    <th scope="col" class="font-italic">Ед. цена</th>
+                    <th scope="col" class="font-italic">Цена</th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+
+            @foreach (var item in Model)
+            {
+                <tbody>
+
+                    <tr>
+                        <td><img src="@item.MainImagePath" style="max-height: 60px;" alt="image" /></td>
+                        <td class="font-weight-bold">@item.Name</td>
+                        <td class="font-weight-bold flex-row justify-content-start">
+                            <a class="arrow-container text-center" asp-controller="Cart" asp-action="Remove" asp-route-id="@item.Id">
+                                <i class=" fa-solid fa-arrow-down arrow-down"></i>
+                            </a>
+                            <span class="mx-2">
+                                @item.Quantity
+                            </span>
+                            <a class="arrow-container text-center" asp-controller="Cart" asp-action="Add" asp-route-id="@item.Id">
+                                <i class="fa-solid fa-arrow-up arrow-up"></i>
+                            </a>
+                        </td>
+                        <td class="font-weight-bold">@item.Price</td>
+
+                        <td class="font-weight-bold">@(item.Price * @item.Quantity)</td>
+
+                    </tr>
+
+                </tbody>
+            }
+        </table>
+    </div>
+
+    <div class="row justify-content-end">
+
+        <div class="row mr-3">
+
+            <p class="text-black font-weight-bold ml-5 font">
+                Обща сума :
+                <span style="font-size: 1rem">
+                    @(Model.Sum(x => x.Quantity * x.Price))
+                </span>
+            </p>
+        </div>
+    </div>
+    <div class="row justify-content-end">
+        <div class="row mr-3">
+            <a class="btn button1 button-tracker-list" asp-controller="Payment" asp-action="Index" asp-route-id="">Напред</a>
+        </div>
+    </div>
+</div>
