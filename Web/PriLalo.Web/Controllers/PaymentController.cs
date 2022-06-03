@@ -2,6 +2,7 @@
 {
     using System.Collections.Generic;
     using System.Linq;
+    using System.Security.Claims;
     using System.Threading.Tasks;
     using Microsoft.AspNetCore.Identity;
     using Microsoft.AspNetCore.Mvc;
@@ -48,10 +49,10 @@
             order.TotalPrice = this.paymentService.GetTotalPriceWithDelivery(order.DeliveryPrice, order.MealsPrice);
             order.HasItemsInCart = true;
 
-            var user = await this.userManager.FindByNameAsync(this.User.Identity.Name);
-
             if (this.User.Identity.IsAuthenticated)
             {
+                var user = await this.userManager.GetUserAsync(this.HttpContext.User);
+
                 order.FirstName = user.FirstName;
                 order.FamilyName = user.LastName;
                 order.PhoneNumber = user.PhoneNumber;
