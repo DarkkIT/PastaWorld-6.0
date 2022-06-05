@@ -16,7 +16,11 @@
     using PriLalo.Web.ViewModels.Meals;
     using PriLalo.Web.ViewModels.News;
 
-    [Authorize(Roles = GlobalConstants.AdministratorRoleName)]
+    [Authorize(Roles =
+        GlobalConstants.AdministratorRoleName + "," +
+        GlobalConstants.ChefRoleName + "," +
+        GlobalConstants.BartenderRoleName + "," +
+        GlobalConstants.DeliveryManRoleName)]
     public class AdminController : BaseController
     {
         private readonly IWebHostEnvironment webHostEnvironment;
@@ -35,16 +39,19 @@
             return this.View();
         }
 
+        [Authorize(Roles = GlobalConstants.AdministratorRoleName)]
         public IActionResult AddNews()
         {
             return this.View();
         }
 
+        [Authorize(Roles = GlobalConstants.AdministratorRoleName)]
         public IActionResult AddMeal()
         {
             return this.View();
         }
 
+        [Authorize(Roles = GlobalConstants.AdministratorRoleName)]
         public async Task<IActionResult> MakeTop(int id, string name)
         {
             await this.mealService.MakeTop(id);
@@ -61,6 +68,7 @@
         }
 
         [HttpPost]
+        [Authorize(Roles = GlobalConstants.AdministratorRoleName)]
         public async Task<IActionResult> AddNews(AddNewsInputModel input)
         {
             if (!this.ModelState.IsValid)
@@ -82,6 +90,7 @@
         }
 
         [HttpPost]
+        [Authorize(Roles = GlobalConstants.AdministratorRoleName)]
         public async Task<IActionResult> AddMeal(AddMealInputModel input)
         {
             if (!this.ModelState.IsValid)
@@ -174,7 +183,7 @@
             return this.View(viewModel);
         }
 
-
+        [Authorize(Roles = GlobalConstants.AdministratorRoleName)]
         public IActionResult EditNews(int id)
         {
             var viewModel = this.newsService.GetById<NewsViewModel>(id);
@@ -182,6 +191,7 @@
             return this.View(viewModel);
         }
 
+        [Authorize(Roles = GlobalConstants.AdministratorRoleName)]
         public IActionResult EditMeal(int id)
         {
             var viewModel = this.mealService.GetById<MealViewModel>(id);
@@ -190,7 +200,7 @@
         }
 
         [HttpPost]
-        [Authorize(Roles = "Administrator")]
+        [Authorize(Roles = GlobalConstants.AdministratorRoleName)]
         public async Task<IActionResult> EditNews(EditNewsInputModel input, int id)
         {
             if (!this.ModelState.IsValid)
@@ -204,7 +214,7 @@
         }
 
         [HttpPost]
-        [Authorize(Roles = "Administrator")]
+        [Authorize(Roles = GlobalConstants.AdministratorRoleName)]
         public async Task<IActionResult> EditMeal(EditMealInputModel input, int id)
         {
             if (!this.ModelState.IsValid)
@@ -217,6 +227,7 @@
             return this.RedirectToAction(nameof(this.Success));
         }
 
+        [Authorize(Roles = GlobalConstants.AdministratorRoleName)]
         public async Task<IActionResult> DeleteNews(int id)
         {
             await this.newsService.DeleteNews(id);
@@ -224,6 +235,8 @@
             return this.RedirectToAction(nameof(this.AllNews));
         }
 
+        [Authorize(Roles = GlobalConstants.AdministratorRoleName + "," +
+        GlobalConstants.ChefRoleName)]
         public async Task<IActionResult> DeleteMeal(int id, string name)
         {
             await this.mealService.DeleteMeal(id);
@@ -234,6 +247,7 @@
             return this.RedirectToAction(nameof(this.AllMeals), new { adminPageName = name });
         }
 
+        [Authorize(Roles = GlobalConstants.AdministratorRoleName)]
         public async Task<IActionResult> UnDeleteNews(int id)
         {
             await this.newsService.UnDeleteNews(id);
@@ -241,6 +255,8 @@
             return this.RedirectToAction(nameof(this.AllNews));
         }
 
+        [Authorize(Roles = GlobalConstants.AdministratorRoleName + "," +
+        GlobalConstants.ChefRoleName)]
         public async Task<IActionResult> UnDeleteMeal(int id, string name)
         {
             await this.mealService.UnDeleteMeal(id);

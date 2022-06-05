@@ -65,7 +65,10 @@
                             <a class="button1 nav-link ml-4" asp-area="" asp-controller="Home" asp-action="Contacts">КОНТАКТИ</a>
                         </li>
 
-                        @if (this.User.IsInRole(GlobalConstants.AdministratorRoleName))
+                        @if (this.User.IsInRole(GlobalConstants.AdministratorRoleName)
+                        || this.User.IsInRole(GlobalConstants.ChefRoleName)
+                        || this.User.IsInRole(GlobalConstants.DeliveryManRoleName)
+                        || this.User.IsInRole(GlobalConstants.BartenderRoleName))
                         {
                             <li class="nav-item">
                                 <a class="button1 nav-link ml-4" asp-area="" asp-controller="Admin" asp-action="Index">ADMIN</a>
