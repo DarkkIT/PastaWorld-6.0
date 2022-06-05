@@ -3,10 +3,10 @@
     using System.Linq;
     using System.Threading.Tasks;
 
-    using PriLalo.Data.Models;
-    using PriLalo.Web.ViewModels.SiteSetting;
     using PriLalo.Data.Common.Repositories;
+    using PriLalo.Data.Models;
     using PriLalo.Services.Mapping;
+    using PriLalo.Web.ViewModels.SiteSetting;
 
     public class SiteSettingsService : ISiteSettingsService
     {
@@ -17,14 +17,14 @@
             this.siteSetingRepository = siteSetingRepository;
         }
 
-        public double GetDeliveryPrice()
+        public decimal GetDeliveryPrice()
         {
             var result = this.siteSetingRepository.All().Where(x => x.Id == 1).To<SiteSettingViewModel>().Select(x => x.PriceDelivery).FirstOrDefault();
 
             return result;
         }
 
-        public async Task SetDeliveryPrice( double deliveryPrice)
+        public async Task SetDeliveryPrice(decimal deliveryPrice)
         {
             var siteSeting = this.siteSetingRepository.All().FirstOrDefault();
 

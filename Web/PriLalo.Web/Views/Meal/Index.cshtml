@@ -4,13 +4,11 @@
     this.ViewData["Title"] = "Menu Page";
 }
 
-
 <head>
     <link href="https://fonts.googleapis.com/css2?family=Pattaya&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="~/css/menu.css" asp-append-version="true" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
-
 
 <div class="base row justify-content-between">
 
@@ -19,7 +17,6 @@
         <div class="text-header row justify-content-center">
             <h1 class="display-4" style="font-family: 'Pattaya', sans-serif; font-size: 3vw;">@Model.PageName</h1>
         </div>
-
 
         <div class="filter row justify-content-center col-md-11 mt-2">
             <form asp-action="Index" method="get">
@@ -32,7 +29,6 @@
                 </div>
             </form>
         </div>
-
 
         <div class=" row justify-content-center">
 
@@ -57,12 +53,6 @@
                 </li>
                 <li class="item4 mr-3">
                     <a class="nav-link-menu item btn btn-light btn-block btn-lg" asp-controller="Meal" asp-action="Index" asp-route-typeName="kids">ДЕТСКО</a>
-                </li>
-                <li class="nav-item mr-3">
-                    <a class="nav-link-menu-blue item btn btn-light btn-block btn-lg" asp-area="" asp-controller="Information" asp-action="Index">ДОСТАВКИ</a>
-                </li>
-                <li class="nav-item mr-3">
-                    <a class="nav-link-menu-blue item btn btn-light btn-block btn-lg" asp-area="" asp-controller="Home" asp-action="Privacy">ЗА НАС</a>
                 </li>
             </ul>
         </div>
@@ -91,12 +81,9 @@
 
         </div>
 
-
         <div class="menu-list col-md-12 col justify-content-start">
             @if (Model.MealList != null)
             {
-
-
                 @foreach (var meal in Model.MealList)
                 {
                     <div class="meal row justify-content-start m-0">
@@ -113,17 +100,18 @@
                         </div>
                         <div class="buttons col-md-1 col justify-end-center m-1">
                             <div class="row justify-content-center mt-1 mb-1 ">
-                                <a class="btn btn-success" asp-controller="Cart" asp-action="Add" asp-route-id="@meal.Id">Add to Cart</a>
+                                <a class="btn btn-success meal-to-cart" asp-controller="Cart" asp-action="Add" asp-route-id="@meal.Id">Add to Cart</a>
                             </div>
                         </div>
-
                     </div>
 
                     <hr />
                 }
             }
         </div>
-
     </div>
-
 </div>
+
+@section Scripts{
+   <script src="~/js/menu.js" asp-append-version="true"></script>
+}

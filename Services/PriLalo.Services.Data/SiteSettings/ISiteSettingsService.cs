@@ -1,15 +1,12 @@
 ﻿namespace PriLalo.Services.Data.SiteSettings
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Text;
     using System.Threading.Tasks;
 
     public interface ISiteSettingsService
     {
-        double GetDeliveryPrice();
+        decimal GetDeliveryPrice();
 
-        Task SetDeliveryPrice(double deliveryPrice);
+        Task SetDeliveryPrice(decimal deliveryPrice);
 
         int GetDeliveryTime();
 

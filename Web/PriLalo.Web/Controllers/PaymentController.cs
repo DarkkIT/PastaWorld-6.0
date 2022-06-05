@@ -10,6 +10,7 @@
     using PriLalo.Data.Models;
     using PriLalo.Services.Data.Cart;
     using PriLalo.Services.Data.Payment;
+    using PriLalo.Services.Data.SiteSettings;
     using PriLalo.Web.ViewModels.Cart;
     using PriLalo.Web.ViewModels.Orders;
 
@@ -17,12 +18,18 @@
     {
         private readonly ICartService cartService;
         private readonly IPaymentService paymentService;
+        private readonly ISiteSettingsService siteSettingsService;
         private readonly UserManager<ApplicationUser> userManager;
 
-        public PaymentController(ICartService cartService, IPaymentService paymentService, UserManager<ApplicationUser> userManager)
+        public PaymentController(
+            ICartService cartService,
+            IPaymentService paymentService,
+            ISiteSettingsService siteSettingsService,
+            UserManager<ApplicationUser> userManager)
         {
             this.cartService = cartService;
             this.paymentService = paymentService;
+            this.siteSettingsService = siteSettingsService;
             this.userManager = userManager;
         }
 
@@ -45,7 +52,7 @@
 
             order.Items = cart;
             order.MealsPrice = this.paymentService.GetAllMealsCurrentPrice(cart);
-            order.DeliveryPrice = this.paymentService.GetDeliveryPrice(order.MealsPrice);
+            order.DeliveryPrice = this.siteSettingsService.GetDeliveryPrice();
             order.TotalPrice = this.paymentService.GetTotalPriceWithDelivery(order.DeliveryPrice, order.MealsPrice);
             order.HasItemsInCart = true;
 
@@ -90,7 +97,7 @@
             model.Items = cart;
             model.Status = GlobalConstants.Accepted;
             model.MealsPrice = this.paymentService.GetAllMealsCurrentPrice(cart);
-            model.DeliveryPrice = this.paymentService.GetDeliveryPrice(model.MealsPrice);
+            model.DeliveryPrice = this.siteSettingsService.GetDeliveryPrice();
             model.TotalPrice = this.paymentService.GetTotalPriceWithDelivery(model.DeliveryPrice, model.MealsPrice);
             model.HasItemsInCart = true;
 

@@ -1,6 +1,7 @@
 ﻿namespace PriLalo.Data.Models
 {
     using System.Collections.Generic;
+
     using PriLalo.Common;
     using PriLalo.Data.Common.Models;
 
