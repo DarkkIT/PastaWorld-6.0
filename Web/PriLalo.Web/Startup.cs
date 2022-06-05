@@ -2,17 +2,6 @@
 {
     using System.Reflection;
 
-    using PriLalo.Data;
-    using PriLalo.Data.Common;
-    using PriLalo.Data.Common.Repositories;
-    using PriLalo.Data.Models;
-    using PriLalo.Data.Repositories;
-    using PriLalo.Data.Seeding;
-    using PriLalo.Services.Data;
-    using PriLalo.Services.Mapping;
-    using PriLalo.Services.Messaging;
-    using PriLalo.Web.ViewModels;
-
     using Microsoft.AspNetCore.Builder;
     using Microsoft.AspNetCore.Hosting;
     using Microsoft.AspNetCore.Http;
@@ -21,13 +10,22 @@
     using Microsoft.Extensions.Configuration;
     using Microsoft.Extensions.DependencyInjection;
     using Microsoft.Extensions.Hosting;
-    using PriLalo.Services.Data.News;
-    using PriLalo.Services.Data.Meal;
-    using PriLalo.Services.Data.Tracking;
+    using PriLalo.Data;
+    using PriLalo.Data.Common;
+    using PriLalo.Data.Common.Repositories;
+    using PriLalo.Data.Models;
+    using PriLalo.Data.Repositories;
+    using PriLalo.Data.Seeding;
+    using PriLalo.Services.Data;
     using PriLalo.Services.Data.Cart;
+    using PriLalo.Services.Data.Meal;
+    using PriLalo.Services.Data.News;
     using PriLalo.Services.Data.Payment;
     using PriLalo.Services.Data.SiteSettings;
-    using PriLalo.Data.Models;
+    using PriLalo.Services.Data.Tracking;
+    using PriLalo.Services.Mapping;
+    using PriLalo.Services.Messaging;
+    using PriLalo.Web.ViewModels;
 
     public class Startup
     {
@@ -108,7 +106,6 @@
                 app.UseHsts();
             }
 
-            app.UseMvc();
             app.UseHttpsRedirection();
             app.UseSession(new SessionOptions()
             {

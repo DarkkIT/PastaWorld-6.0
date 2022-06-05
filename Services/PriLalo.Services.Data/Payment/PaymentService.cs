@@ -3,20 +3,26 @@
     using System.Collections.Generic;
     using System.Threading.Tasks;
 
+    using PriLalo.Data.Common.Repositories;
     using PriLalo.Data.Models;
+    using PriLalo.Services.Data.SiteSettings;
     using PriLalo.Web.ViewModels.Cart;
     using PriLalo.Web.ViewModels.Orders;
-    using PriLalo.Data.Common.Repositories;
 
     public class PaymentService : IPaymentService
     {
         private readonly IDeletableEntityRepository<Order> orderRepository;
         private readonly IDeletableEntityRepository<SiteSetting> siteSettingRepository;
+        private readonly ISiteSettingsService siteSettingsService;
 
-        public PaymentService(IDeletableEntityRepository<Order> orderRepository, IDeletableEntityRepository<SiteSetting> siteSettingRepository)
+        public PaymentService(
+            IDeletableEntityRepository<Order> orderRepository,
+            IDeletableEntityRepository<SiteSetting> siteSettingRepository,
+            ISiteSettingsService siteSettingsService)
         {
             this.orderRepository = orderRepository;
             this.siteSettingRepository = siteSettingRepository;
+            this.siteSettingsService = siteSettingsService;
         }
 
         public async Task AddOrder(OrderPaymentViewModel model)
@@ -68,20 +74,6 @@
             var totalPrice = deliveryPrice + currentPrice;
 
             return totalPrice;
-        }
-
-        public decimal GetDeliveryPrice(decimal currentPrice)
-        {
-            //siteSettingRepository.
-
-            var deliveryPrice = 0m;
-
-            if (currentPrice < 10)
-            {
-                deliveryPrice = 5.00m;
-            }
-
-            return deliveryPrice;
         }
 
         public decimal GetAllMealsCurrentPrice(IList<CartItemViewModel> cart)

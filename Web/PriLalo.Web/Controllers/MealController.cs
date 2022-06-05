@@ -1,6 +1,5 @@
 ﻿namespace PriLalo.Web.Controllers
 {
-    using System;
     using System.Collections.Generic;
     using System.Diagnostics;
 
@@ -9,7 +8,6 @@
     using PriLalo.Services.Data.Meal;
     using PriLalo.Web.ViewModels;
     using PriLalo.Web.ViewModels.Meals;
-    using PriLalo.Web.ViewModels;
 
     public class MealController : BaseController
     {
@@ -27,7 +25,7 @@
 
             IEnumerable<MealViewModel> meals = null;
 
-            if (!String.IsNullOrEmpty(searchString))
+            if (!string.IsNullOrEmpty(searchString))
             {
                 if (typeName == "meal")
                 {
