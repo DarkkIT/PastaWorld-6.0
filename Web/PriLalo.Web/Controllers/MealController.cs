@@ -70,7 +70,7 @@
                 {
                     meals = this.mealService.GetAllPizza<MealViewModel>(id, 100);
                 }
-                else if(typeName == "salad")
+                else if (typeName == "salad")
                 {
                     meals = this.mealService.GetAllSalads<MealViewModel>(id, 100);
                 }

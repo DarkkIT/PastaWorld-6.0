@@ -3,16 +3,13 @@
     using System;
     using System.Threading.Tasks;
 
+    using Microsoft.AspNetCore.Authorization;
+    using Microsoft.AspNetCore.Mvc;
+    using PriLalo.Common;
+    using PriLalo.Data.Common.Repositories;
     using PriLalo.Data.Models;
     using PriLalo.Services.Data;
     using PriLalo.Web.ViewModels.Settings;
-
-    using Microsoft.AspNetCore.Mvc;
-    using Microsoft.AspNetCore.Authorization;
-    using PriLalo.Common;
-    using PriLalo.Services.Data;
-    using PriLalo.Data.Common.Repositories;
-    using PriLalo.Data.Models;
 
     [Authorize(Roles = GlobalConstants.AdministratorRoleName)]
     public class SettingsController : BaseController

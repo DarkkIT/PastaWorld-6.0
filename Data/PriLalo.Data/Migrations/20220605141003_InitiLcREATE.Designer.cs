@@ -12,8 +12,8 @@ using PriLalo.Data;
 namespace PriLalo.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20220602191047_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20220605141003_InitiLcREATE")]
+    partial class InitiLcREATE
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -679,8 +679,8 @@ namespace PriLalo.Data.Migrations
                     b.Property<string>("Mol")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<double>("PriceDelivery")
-                        .HasColumnType("float");
+                    b.Property<decimal>("PriceDelivery")
+                        .HasColumnType("decimal(18,2)");
 
                     b.Property<string>("WorkingHours")
                         .HasColumnType("nvarchar(max)");

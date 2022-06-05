@@ -4,6 +4,7 @@
     <TargetFramework>net6.0</TargetFramework>
     <GenerateRuntimeConfigurationFiles>true</GenerateRuntimeConfigurationFiles>
     <LangVersion>latest</LangVersion>
+	  <ErrorOnDuplicatePublishOutputFiles>false</ErrorOnDuplicatePublishOutputFiles>
   </PropertyGroup>
 
   <PropertyGroup>
@@ -42,10 +43,6 @@
     <ProjectReference Include="..\..\PriLalo.Common\PriLalo.Common.csproj" />
     <ProjectReference Include="..\PriLalo.Data.Common\PriLalo.Data.Common.csproj" />
     <ProjectReference Include="..\PriLalo.Data.Models\PriLalo.Data.Models.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Migrations\" />
   </ItemGroup>
 
 </Project>

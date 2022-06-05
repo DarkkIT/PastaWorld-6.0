@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace PriLalo.Data.Migrations
 {
-    public partial class InitialCreate : Migration
+    public partial class InitiLcREATE : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

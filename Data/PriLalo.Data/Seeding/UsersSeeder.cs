@@ -8,9 +8,6 @@
     using PriLalo.Common;
     using PriLalo.Data;
     using PriLalo.Data.Models;
-    using PriLalo.Data.Seeding;
-    using PriLalo.Data;
-    using PriLalo.Data.Seeding;
 
     public class UsersSeeder : ISeeder
     {
@@ -20,6 +17,9 @@
 
             await SeedUserAsync(userManager, "pastaworld@abv.bg");
             await SeedUserAsync(userManager, "tzl_bul@yahoo.com");
+            await SeedUserAsync(userManager, "delivery@abv.bg");
+            await SeedUserAsync(userManager, "chef@abv.bg");
+            await SeedUserAsync(userManager, "bartender@abv.bg");
         }
 
         private static async Task SeedUserAsync(UserManager<ApplicationUser> userManager, string userName)
@@ -41,12 +41,36 @@
                 {
                     result = userManager.CreateAsync(appUser, "trqvna@83da").Result;
                 }
+                else if (userName == "delivery@abv.bg")
+                {
+                    result = userManager.CreateAsync(appUser, "del12f").Result;
+                }
+                else if (userName == "chef@abv.bg")
+                {
+                    result = userManager.CreateAsync(appUser, "chef2d").Result;
+                }
+                else if (userName == "bartender@abv.bg")
+                {
+                    result = userManager.CreateAsync(appUser, "bar816").Result;
+                }
 
                 if (result.Succeeded)
                 {
                     if (userName == "pastaworld@abv.bg" || userName == "tzl_bul@yahoo.com")
                     {
                         userManager.AddToRoleAsync(appUser, GlobalConstants.AdministratorRoleName).Wait();
+                    }
+                    else if (userName == "delivery@abv.bg")
+                    {
+                        userManager.AddToRoleAsync(appUser, GlobalConstants.DeliveryManRoleName).Wait();
+                    }
+                    else if (userName == "chef@abv.bg")
+                    {
+                        userManager.AddToRoleAsync(appUser, GlobalConstants.ChefRoleName).Wait();
+                    }
+                    else if (userName == "bartender@abv.bg")
+                    {
+                        userManager.AddToRoleAsync(appUser, GlobalConstants.BartenderRoleName).Wait();
                     }
                 }
             }
