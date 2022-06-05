@@ -164,7 +164,7 @@
 
             <div id="terms-and-conditions" class="form-group form-check">
                 <input class="form-check-input" type="checkbox" asp-for="IsAgreedTermsAndConditions" />
-                <label class="form-check-label" asp-for="IsAgreedTermsAndConditions">Съгласен/на съм с <a href="#" target="_blank">Условията за ползване на сайта</a></label>
+                <label class="form-check-label" asp-for="IsAgreedTermsAndConditions">Съгласен/на съм с <a asp-area="" asp-controller="Home" asp-action="Privacy" target="_blank">Условията за ползване на сайта</a></label>
                 <span asp-validation-for="IsAgreedTermsAndConditions" class="text-danger"></span>
             </div>
 

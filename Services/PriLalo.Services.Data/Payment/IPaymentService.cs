@@ -12,8 +12,6 @@
 
         decimal GetTotalPriceWithDelivery(decimal deliveryPrice, decimal currentPrice);
 
-        decimal GetDeliveryPrice(decimal currentPrice);
-
         decimal GetAllMealsCurrentPrice(IList<CartItemViewModel> cart);
 
         decimal GetMealTotalPrice(decimal mealPrice, decimal quantity);

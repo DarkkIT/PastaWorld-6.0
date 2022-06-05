@@ -1,12 +1,11 @@
-﻿#nullable disable
+﻿using System;
+using Microsoft.EntityFrameworkCore.Migrations;
+
+#nullable disable
 
 namespace PriLalo.Data.Migrations
 {
-    using System;
-
-    using Microsoft.EntityFrameworkCore.Migrations;
-
-    public partial class InitialCreate : Migration
+    public partial class InitiLcREATE : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -148,7 +147,7 @@ namespace PriLalo.Data.Migrations
                     HomePageSecondImageTitle = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     HomePageThirdImageTitle = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     HomePageSubImageTitle = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    PriceDelivery = table.Column<double>(type: "float", nullable: false),
+                    PriceDelivery = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
                     WorkingHours = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     DeliveryTime = table.Column<int>(type: "int", nullable: false),
                     Address = table.Column<string>(type: "nvarchar(max)", nullable: true),

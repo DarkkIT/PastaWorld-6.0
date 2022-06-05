@@ -248,7 +248,6 @@
             var meals = this.mealService.GetAllMealWithDeleted<MealViewModel>(1, 1000, name);
             var viewModel = new MealListViewModel { TypeName = name, MealList = meals, PageNumber = 1, MotorBikeCount = this.newsService.GetCount(), ItemsPerPage = GlobalConstants.ItemsPerPage };
 
-
             return this.RedirectToAction(nameof(this.AllMeals), new { adminPageName = name });
         }
     }

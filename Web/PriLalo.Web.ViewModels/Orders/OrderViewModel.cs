@@ -4,8 +4,8 @@
     using System.ComponentModel.DataAnnotations;
 
     using PriLalo.Data.Models;
-    using PriLalo.Web.ViewModels.Cart;
     using PriLalo.Services.Mapping;
+    using PriLalo.Web.ViewModels.Cart;
 
     public class OrderViewModel : IMapFrom<Order>
     {

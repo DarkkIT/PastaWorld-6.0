@@ -12,7 +12,7 @@
 
         public string HomePageSubImageTitle { get; set; }
 
-        public double PriceDelivery { get; set; }
+        public decimal PriceDelivery { get; set; }
 
         public string WorkingHours { get; set; }
 

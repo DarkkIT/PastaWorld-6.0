@@ -2,6 +2,7 @@
 {
     using System.Collections.Generic;
     using System.Linq;
+    using System.Security.Claims;
     using System.Threading.Tasks;
     using Microsoft.AspNetCore.Identity;
     using Microsoft.AspNetCore.Mvc;
@@ -9,6 +10,7 @@
     using PriLalo.Data.Models;
     using PriLalo.Services.Data.Cart;
     using PriLalo.Services.Data.Payment;
+    using PriLalo.Services.Data.SiteSettings;
     using PriLalo.Web.ViewModels.Cart;
     using PriLalo.Web.ViewModels.Orders;
 
@@ -16,12 +18,18 @@
     {
         private readonly ICartService cartService;
         private readonly IPaymentService paymentService;
+        private readonly ISiteSettingsService siteSettingsService;
         private readonly UserManager<ApplicationUser> userManager;
 
-        public PaymentController(ICartService cartService, IPaymentService paymentService, UserManager<ApplicationUser> userManager)
+        public PaymentController(
+            ICartService cartService,
+            IPaymentService paymentService,
+            ISiteSettingsService siteSettingsService,
+            UserManager<ApplicationUser> userManager)
         {
             this.cartService = cartService;
             this.paymentService = paymentService;
+            this.siteSettingsService = siteSettingsService;
             this.userManager = userManager;
         }
 
@@ -44,14 +52,14 @@
 
             order.Items = cart;
             order.MealsPrice = this.paymentService.GetAllMealsCurrentPrice(cart);
-            order.DeliveryPrice = this.paymentService.GetDeliveryPrice(order.MealsPrice);
+            order.DeliveryPrice = this.siteSettingsService.GetDeliveryPrice();
             order.TotalPrice = this.paymentService.GetTotalPriceWithDelivery(order.DeliveryPrice, order.MealsPrice);
             order.HasItemsInCart = true;
 
-            var user = await this.userManager.FindByNameAsync(this.User.Identity.Name);
-
             if (this.User.Identity.IsAuthenticated)
             {
+                var user = await this.userManager.GetUserAsync(this.HttpContext.User);
+
                 order.FirstName = user.FirstName;
                 order.FamilyName = user.LastName;
                 order.PhoneNumber = user.PhoneNumber;
@@ -89,7 +97,7 @@
             model.Items = cart;
             model.Status = GlobalConstants.Accepted;
             model.MealsPrice = this.paymentService.GetAllMealsCurrentPrice(cart);
-            model.DeliveryPrice = this.paymentService.GetDeliveryPrice(model.MealsPrice);
+            model.DeliveryPrice = this.siteSettingsService.GetDeliveryPrice();
             model.TotalPrice = this.paymentService.GetTotalPriceWithDelivery(model.DeliveryPrice, model.MealsPrice);
             model.HasItemsInCart = true;
 

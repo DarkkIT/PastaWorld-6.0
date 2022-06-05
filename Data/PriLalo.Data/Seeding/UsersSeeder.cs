@@ -8,9 +8,6 @@
     using PriLalo.Common;
     using PriLalo.Data;
     using PriLalo.Data.Models;
-    using PriLalo.Data.Seeding;
-    using PriLalo.Data;
-    using PriLalo.Data.Seeding;
 
     public class UsersSeeder : ISeeder
     {

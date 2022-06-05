@@ -1,10 +1,9 @@
 ﻿namespace PriLalo.Web.ViewModels.SiteSetting
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Text;
+    using PriLalo.Data.Models;
+    using PriLalo.Services.Mapping;
 
-    public class SiteSettingViewModel
+    public class SiteSettingViewModel : IMapFrom<SiteSetting>
     {
         public string HomePageImageTitle { get; set; }
 
@@ -14,7 +13,7 @@
 
         public string HomePageSubImageTitle { get; set; }
 
-        public double PriceDelivery { get; set; }
+        public decimal PriceDelivery { get; set; }
 
         public string WorkingHours { get; set; }
 

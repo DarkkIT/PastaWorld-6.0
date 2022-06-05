@@ -17,7 +17,7 @@ namespace PriLalo.Data.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "6.0.5")
+                .HasAnnotation("ProductVersion", "6.0.3")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
@@ -677,8 +677,8 @@ namespace PriLalo.Data.Migrations
                     b.Property<string>("Mol")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<double>("PriceDelivery")
-                        .HasColumnType("float");
+                    b.Property<decimal>("PriceDelivery")
+                        .HasColumnType("decimal(18,2)");
 
                     b.Property<string>("WorkingHours")
                         .HasColumnType("nvarchar(max)");

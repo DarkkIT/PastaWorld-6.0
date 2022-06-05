@@ -5,6 +5,11 @@
     using System.IO;
     using System.Threading.Tasks;
 
+    using CommandLine;
+    using Microsoft.EntityFrameworkCore;
+    using Microsoft.Extensions.Configuration;
+    using Microsoft.Extensions.DependencyInjection;
+    using Microsoft.Extensions.Logging;
     using PriLalo.Data;
     using PriLalo.Data.Common;
     using PriLalo.Data.Common.Repositories;
@@ -13,14 +18,6 @@
     using PriLalo.Data.Seeding;
     using PriLalo.Services.Data;
     using PriLalo.Services.Messaging;
-
-    using CommandLine;
-
-    using Microsoft.EntityFrameworkCore;
-    using Microsoft.Extensions.Configuration;
-    using Microsoft.Extensions.DependencyInjection;
-    using Microsoft.Extensions.Logging;
-    using PriLalo.Data.Models;
 
     public static class Program
     {

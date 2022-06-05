@@ -1,19 +1,17 @@
 ﻿namespace PriLalo.Web.Controllers
 {
+    using System.Collections.Generic;
     using System.Diagnostics;
-
-    using PriLalo.Web.ViewModels;
+    using System.IO;
+    using System.Linq;
+    using System.Text;
 
     using Microsoft.AspNetCore.Mvc;
-    using PriLalo.Services.Data.News;
-    using PriLalo.Web.ViewModels.News;
-    using PriLalo.Web.ViewModels.Cart;
-    using System.Collections.Generic;
-    using System.IO;
-    using System.Text;
     using Newtonsoft.Json;
-    using System.Linq;
+    using PriLalo.Services.Data.News;
     using PriLalo.Web.ViewModels;
+    using PriLalo.Web.ViewModels.Cart;
+    using PriLalo.Web.ViewModels.News;
 
     public class HomeController : BaseController
     {
