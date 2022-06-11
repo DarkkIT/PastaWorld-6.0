@@ -17,34 +17,34 @@
             //        }
 
             //        if (xhr.readyState == XMLHttpRequest.DONE) {
-            //            alert("qkata rabota")
+            //            alert("qkata rabota")v
             //            //var jsonResponse = JSON.parse(xhr.responseText)
             //            //window.location.replace(jsonResponse.redirectRoute)
             //        }
             //    }
-
             //}));
 
             let data = { id: this.id }
-            debugger;
-            var antiForgeryToken = $('#antiForgeryForm input[name=__RequestVerificationToken]').val();
+            //$.post("/Meal", JSON.stringify(data), console.log(data))
+
+            $.get("/MealApi", { data: data }, function (data) { console.log("success!") });
+
+
             $.ajax({
                 type: "POST",
-                url: "/api/MealApi",
+                url: "/MealApi",
                 data: JSON.stringify(data),
                 dataType: 'json',
                 contentType: 'application/json',
-                headers: {
-                    'X-CSRF-TOKEN': antiForgeryToken
-                },
+
                 success: function (data) {
+                   
+                    console.log("We did it!")
+                    console.log(data);
 
-                    //console.log(data);
-                    //updateResource(data);
-
-                    ////let newUnitQuantity = Number($(`#${data.unitType}`).text().split(`${data.unitType} `).filter(Boolean)) + data.unitQuantity;
-                    //$(`#${data.unitType}`).text(`${data.unitType} ${data.unitQuantity}`)
+                    $("#lblCartCount").text(data);
                 }
+
             });
         })
         )

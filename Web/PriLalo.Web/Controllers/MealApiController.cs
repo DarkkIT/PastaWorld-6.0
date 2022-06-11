@@ -1,14 +1,18 @@
 ﻿namespace PriLalo.Web.Controllers
 {
+    using System.Collections.Generic;
+    using System.Linq;
     using System.Threading.Tasks;
 
     using Microsoft.AspNetCore.Mvc;
     using PriLalo.Services.Data.Cart;
     using PriLalo.Services.Data.Meal;
+    using PriLalo.Web.ViewModels.Cart;
+    using PriLalo.Web.ViewModels.Meals;
 
-    [Route("api/[controller]")]
+    [Route("[controller]")]
     [ApiController]
-    public class MealApiController : Controller
+    public class MealApiController : ControllerBase
     {
         private readonly IMealService mealService;
         private readonly ICartService cartService;
@@ -19,30 +23,28 @@
             this.cartService = cartService;
         }
 
+        [IgnoreAntiforgeryToken]
         [HttpPost]
-        public async Task<ActionResult<string>> Add(Neshto input)
+        public async Task<ActionResult<int>> Add([FromBody] Test nestho)
         {
-            //var meal = this.mealService.GetById<MealViewModel>(id);
+            var meal = this.mealService.GetById<MealViewModel>(nestho.Id);
 
-            //var cart = new List<CartItemViewModel>();
+            var cart = new List<CartItemViewModel>();
 
-            //var cartExists = this.HttpContext.Session.TryGetValue("cart", out byte[] result);
+            var cartExists = this.HttpContext.Session.TryGetValue("cart", out byte[] result);
 
-            //if (cartExists)
-            //{
-            //    cart = this.cartService.DeserializeCartContent(result);
-            //}
+            if (cartExists)
+            {
+                cart = this.cartService.DeserializeCartContent(result);
+            }
 
-            //cart = this.cartService.AddItemToCart(meal, cart);
+            cart = this.cartService.AddItemToCart(meal, cart);
 
-            //var serializedCart = this.cartService.SerializeCartContent(cart);
-            //this.HttpContext.Session.Set("cart", serializedCart);
-            return "wazaaaa";
+            var serializedCart = this.cartService.SerializeCartContent(cart);
+            this.HttpContext.Session.Set("cart", serializedCart);
+
+            return cart.Sum(x => x.Quantity);
         }
     }
 
-    public class Neshto
-    {
-        public string Id { get; set; }
-    }
 }
