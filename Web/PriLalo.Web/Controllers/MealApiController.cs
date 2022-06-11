@@ -24,9 +24,9 @@
         }
 
         [HttpPost]
-        public async Task<ActionResult<int>> Add([FromBody] Test nestho)
+        public async Task<ActionResult<int>> Add([FromBody] MealToAddViewModel input)
         {
-            var meal = this.mealService.GetById<MealViewModel>(nestho.Id);
+            var meal = this.mealService.GetById<MealViewModel>(input.Id);
 
             var cart = new List<CartItemViewModel>();
 
