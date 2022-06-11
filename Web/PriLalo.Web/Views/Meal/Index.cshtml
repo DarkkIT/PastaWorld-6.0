@@ -100,7 +100,7 @@
                         </div>
                         <div class="buttons col-md-1 col justify-end-center m-1">
                             <div class="row justify-content-center mt-1 mb-1 ">
-                                <a class="btn btn-success meal-to-cart" asp-controller="Cart" asp-action="Add" asp-route-id="@meal.Id">Add to Cart</a>
+                                <a id="@meal.Id" class="btn btn-success meal-to-cart mealBtn" @*asp-controller="Cart" asp-action="Add" asp-route-id="@meal.Id"*@>Add to Cart</a>
                             </div>
                         </div>
                     </div>
@@ -111,6 +111,7 @@
         </div>
     </div>
 </div>
+<form method="post" id="antiForgeryForm"></form>
 
 @section Scripts{
    <script src="~/js/menu.js" asp-append-version="true"></script>
