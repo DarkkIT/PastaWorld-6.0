@@ -25,10 +25,12 @@
             //}));
 
             let data = { id: this.id }
-            //$.post("/Meal", JSON.stringify(data), console.log(data))
 
-            $.get("/MealApi", { data: data }, function (data) { console.log("success!") });
+            //$.post("/MealApi", JSON.stringify(data), console.log(data))
 
+            //$.get("/MealApi", { data: data }, function (data) { console.log("success!") });
+
+            var antiForgeryToken = $('#antiForgeryForm input[name=__RequestVerificationToken]').val();
 
             $.ajax({
                 type: "POST",
@@ -36,7 +38,9 @@
                 data: JSON.stringify(data),
                 dataType: 'json',
                 contentType: 'application/json',
-
+                headers: {
+                    'X-CSRF-TOKEN': antiForgeryToken
+                },
                 success: function (data) {
                    
                     console.log("We did it!")

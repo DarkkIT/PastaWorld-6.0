@@ -23,7 +23,6 @@
             this.cartService = cartService;
         }
 
-        [IgnoreAntiforgeryToken]
         [HttpPost]
         public async Task<ActionResult<int>> Add([FromBody] Test nestho)
         {
