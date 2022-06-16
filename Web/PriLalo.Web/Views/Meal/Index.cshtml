@@ -69,7 +69,7 @@
                     {
                         <div id="topMeals" class="card m-2 mt-5">
                             <div class="thumbnail">
-                                <img class="card-img" src=@meal.MainImagePath alt="news">
+                                <img class="card-img" src="data:image/jpeg;base64,@Convert.ToBase64String(meal.Image)" alt="news">
                                 <p class="topMeal-name justify-content-center">@meal.Name</p>
                                 <a class="topMeal-button btn btn-success" asp-controller="Cart" asp-action="Add" asp-route-id="@meal.Id">Add to Cart</a>
                             </div>
@@ -88,7 +88,7 @@
                 {
                     <div class="meal row justify-content-start m-0">
                         <div class="image col-md-2">
-                            <img class="card-img" src="@meal.MainImagePath" alt="news">
+                            <img class="card-img" src="data:image/jpeg;base64,@Convert.ToBase64String(meal.Image)" alt="news">
                         </div>
 
                         <div class="body col justify-content-center m-1">
@@ -100,7 +100,7 @@
                         </div>
                         <div class="buttons col-md-1 col justify-end-center m-1">
                             <div class="row justify-content-center mt-1 mb-1 ">
-                                <a id="@meal.Id" class="btn btn-success meal-to-cart mealBtn" @*asp-controller="Cart" asp-action="Add" asp-route-id="@meal.Id"*@>Add to Cart</a>
+                                <a id="@meal.Id" class="btn btn-success meal-to-cart mealBtn">Add to Cart</a>
                             </div>
                         </div>
                     </div>
