@@ -25,6 +25,8 @@
         [Required]
         public IFormFile Image { get; set; }
 
+        public byte[] ImageAsByteArray { get; set; }
+
         [Required]
         public decimal Price { get; set; }
     }

@@ -24,6 +24,8 @@
 
         public DateTime DeletedOn { get; set; }
 
+        public byte[] Image { get; set; }
+
         public string MainImagePath => "/images/news/" + this.ImageName + ".jpg";
 
         public void CreateMappings(IProfileExpression configuration)

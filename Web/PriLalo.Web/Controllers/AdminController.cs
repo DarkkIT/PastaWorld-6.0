@@ -78,15 +78,16 @@
 
             if (input.Image != null && input.Image.Length > 0)
             {
-                using (FileStream fs = new FileStream(this.webHostEnvironment.WebRootPath + ("/images/news/" + input.ImageName + ".jpg"), FileMode.Create))
+                using (var ms = new MemoryStream())
                 {
-                    await input.Image.CopyToAsync(fs);
+                    input.Image.CopyTo(ms);
+                    input.ImageAsByteArray = ms.ToArray();
                 }
             }
 
             await this.newsService.AddNewsAsync(input);
 
-            return this.View();
+            return this.RedirectToAction(nameof(this.Success));
         }
 
         [HttpPost]
@@ -100,9 +101,10 @@
 
             if (input.Image != null && input.Image.Length > 0)
             {
-                using (FileStream fs = new FileStream(this.webHostEnvironment.WebRootPath + ("/images/meals/" + input.ImageName + ".jpg"), FileMode.Create))
+                using (var ms = new MemoryStream())
                 {
-                    await input.Image.CopyToAsync(fs);
+                    input.Image.CopyTo(ms);
+                    input.ImageAsByteArray = ms.ToArray();
                 }
             }
 

@@ -55,8 +55,9 @@
     padding: 7px;
     background-color: red;
     color: white !important;
-    font-size: 1.2vw;
+    font-size: large;
     max-width: 7rem;
+    font-family: 'Arial', sans-serif;
 }
 
     .button-tracker-list:hover {

@@ -2,16 +2,14 @@
 {
     using System;
     using System.Collections.Generic;
-    using System.IO;
     using System.Linq;
-    using System.Text;
     using System.Threading.Tasks;
 
+    using PriLalo.Data.Common.Repositories;
     using PriLalo.Data.Models;
+    using PriLalo.Services.Mapping;
     using PriLalo.Web.ViewModels.Admins;
     using PriLalo.Web.ViewModels.News;
-    using PriLalo.Data.Common.Repositories;
-    using PriLalo.Services.Mapping;
 
     public class NewsService : INewsService
     {
@@ -30,6 +28,7 @@
                 Description = input.Description,
                 ImageName = input.ImageName,
                 NewsDate = DateTime.UtcNow,
+                Image = input.ImageAsByteArray,
             };
 
             await this.newsRepository.AddAsync(news);

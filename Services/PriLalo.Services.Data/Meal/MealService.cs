@@ -77,6 +77,7 @@
                 ImageName = input.ImageName,
                 Price = input.Price,
                 Type = input.Type,
+                Image = input.ImageAsByteArray,
             };
 
             await this.mealRepository.AddAsync(meal);

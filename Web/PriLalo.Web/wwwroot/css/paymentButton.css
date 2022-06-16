@@ -7,8 +7,7 @@
     padding: 7px;
     background-color: red;
     color: white !important;
-    font-size: 1.2vw;
-    /*max-width: 7rem;*/
+    font-size: large;
 }
 
     .button-finish:hover {

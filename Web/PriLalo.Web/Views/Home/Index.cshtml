@@ -74,7 +74,7 @@
             {
                 <div id="newsHomeCard" class="card m-3 mt-5 col-md-3">
                     <div class="thumbnail">
-                        <img class="card-img" src=@news.MainImagePath alt="news">
+                        <img class="card-img" src="data:image/jpeg;base64,@Convert.ToBase64String(news.Image)" alt="news">
                     </div>
                     <div class="card-body">
                         <span class="badge badge-success">News</span>

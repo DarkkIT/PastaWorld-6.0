@@ -46,4 +46,9 @@
 		<ProjectReference Include="..\PriLalo.Web.Infrastructure\PriLalo.Web.Infrastructure.csproj" />
 		<ProjectReference Include="..\PriLalo.Web.ViewModels\PriLalo.Web.ViewModels.csproj" />
 	</ItemGroup>
+
+	<ItemGroup>
+	  <Folder Include="wwwroot\images\meals\" />
+	  <Folder Include="wwwroot\images\news\" />
+	</ItemGroup>
 </Project>

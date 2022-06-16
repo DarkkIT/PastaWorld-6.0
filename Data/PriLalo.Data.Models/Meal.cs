@@ -24,6 +24,8 @@
 
         public bool IsTop { get; set; }
 
+        public byte[] Image { get; set; }
+
         public virtual ICollection<MealIngredients> MealIngredients { get; set; }
 
         public virtual ICollection<CartItem> CartItems { get; set; }
