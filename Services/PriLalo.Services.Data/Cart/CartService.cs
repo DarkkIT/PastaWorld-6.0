@@ -26,6 +26,7 @@
                     Name = meal.Name,
                     Price = meal.Price,
                     Quantity = 1,
+                    Image = meal.Image,
                 };
 
                 cart.Add(cartItem);

@@ -12,6 +12,8 @@
 
         public string MainImagePath => "/images/meals/" + this.ImageName + ".jpg";
 
+        public byte[] Image { get; set; }
+
         public int Quantity { get; set; }
     }
 }
